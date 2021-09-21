@@ -1,0 +1,27 @@
+﻿<table class="table">
+    <thead>
+        <tr class="tbl">
+            <td>Id</td>
+            <td>Name</td>
+            <td>Active</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let u of users">
+                <td>{{u?.id}}</td>
+                <td>{{u?.name}}</td>
+                <td><input type="checkbox" [(ngModel)]="u.active" name="list_name" value="{{u.id}}"
+                           (change)="editActive(u)" /></td>
+        </tr>
+    </tbody>
+</table>
+
+<input type="button" value="Total" class="btn btn-secondary" (click)="Total()" />
+<div #myModal class="container">
+    <div class="content">
+        <div class="borderpopuptext"><span>Pop-up header</span></div>
+        
+        <p>Total count: {{total}} <br />Active count: {{active}}</p>
+        <input type="button" value="Close" class="newbtn btn-secondary" (click)="closeModal()" />
+    </div>
+</div>
